@@ -49,8 +49,5 @@
     <ClInclude Include="QtUtil.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="itkImageToVTKImageFilter.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
   </ItemGroup>
 </Project>

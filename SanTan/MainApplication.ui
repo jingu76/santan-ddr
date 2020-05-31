@@ -31,126 +31,100 @@
         <property name="frameShadow">
          <enum>QFrame::Raised</enum>
         </property>
-        <widget class="QPushButton" name="m_ct_btn">
+        <widget class="QWidget" name="">
          <property name="geometry">
           <rect>
            <x>10</x>
            <y>10</y>
-           <width>71</width>
+           <width>861</width>
            <height>31</height>
           </rect>
          </property>
-         <property name="text">
-          <string>CT</string>
-         </property>
-        </widget>
-        <widget class="QPushButton" name="m_xray_btn">
-         <property name="geometry">
-          <rect>
-           <x>90</x>
-           <y>10</y>
-           <width>71</width>
-           <height>31</height>
-          </rect>
-         </property>
-         <property name="text">
-          <string>X-ray</string>
-         </property>
-        </widget>
-        <widget class="QPushButton" name="m_divarea_btn">
-         <property name="geometry">
-          <rect>
-           <x>170</x>
-           <y>10</y>
-           <width>71</width>
-           <height>31</height>
-          </rect>
-         </property>
-         <property name="text">
-          <string>划区域</string>
-         </property>
-        </widget>
-        <widget class="QPushButton" name="m_compare_btn">
-         <property name="geometry">
-          <rect>
-           <x>250</x>
-           <y>10</y>
-           <width>93</width>
-           <height>28</height>
-          </rect>
-         </property>
-         <property name="text">
-          <string>比较区域</string>
-         </property>
-        </widget>
-        <widget class="QPushButton" name="m_cancel_btn">
-         <property name="geometry">
-          <rect>
-           <x>350</x>
-           <y>10</y>
-           <width>93</width>
-           <height>28</height>
-          </rect>
-         </property>
-         <property name="text">
-          <string>取消区域</string>
-         </property>
-        </widget>
-        <widget class="QCheckBox" name="m_ddr_box">
-         <property name="geometry">
-          <rect>
-           <x>450</x>
-           <y>20</y>
-           <width>91</width>
-           <height>19</height>
-          </rect>
-         </property>
-         <property name="text">
-          <string>显示DRR</string>
-         </property>
-        </widget>
-        <widget class="QCheckBox" name="m_xray_box">
-         <property name="geometry">
-          <rect>
-           <x>530</x>
-           <y>20</y>
-           <width>91</width>
-           <height>19</height>
-          </rect>
-         </property>
-         <property name="text">
-          <string>显示X影像</string>
-         </property>
-        </widget>
-        <widget class="QLabel" name="label_9">
-         <property name="geometry">
-          <rect>
-           <x>630</x>
-           <y>20</y>
-           <width>101</width>
-           <height>16</height>
-          </rect>
-         </property>
-         <property name="text">
-          <string>DRR图透明占比</string>
-         </property>
-        </widget>
-        <widget class="QTextEdit" name="m_transparent_text">
-         <property name="geometry">
-          <rect>
-           <x>740</x>
-           <y>10</y>
-           <width>51</width>
-           <height>31</height>
-          </rect>
-         </property>
-         <property name="html">
-          <string>&lt;!DOCTYPE HTML PUBLIC &quot;-//W3C//DTD HTML 4.0//EN&quot; &quot;http://www.w3.org/TR/REC-html40/strict.dtd&quot;&gt;
-&lt;html&gt;&lt;head&gt;&lt;meta name=&quot;qrichtext&quot; content=&quot;1&quot; /&gt;&lt;style type=&quot;text/css&quot;&gt;
-p, li { white-space: pre-wrap; }
-&lt;/style&gt;&lt;/head&gt;&lt;body style=&quot; font-family:'SimSun'; font-size:9pt; font-weight:400; font-style:normal;&quot;&gt;
-&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;50%&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
-         </property>
+         <layout class="QHBoxLayout" name="horizontalLayout_5">
+          <item>
+           <widget class="QPushButton" name="m_ct_btn">
+            <property name="text">
+             <string>CT</string>
+            </property>
+           </widget>
+          </item>
+          <item>
+           <widget class="QPushButton" name="m_xray_btn">
+            <property name="text">
+             <string>X-ray</string>
+            </property>
+           </widget>
+          </item>
+          <item>
+           <widget class="QPushButton" name="m_divarea_btn">
+            <property name="text">
+             <string>划区域</string>
+            </property>
+           </widget>
+          </item>
+          <item>
+           <widget class="QPushButton" name="m_compare_btn">
+            <property name="text">
+             <string>比较区域</string>
+            </property>
+           </widget>
+          </item>
+          <item>
+           <widget class="QPushButton" name="m_cancel_btn">
+            <property name="text">
+             <string>取消区域</string>
+            </property>
+           </widget>
+          </item>
+          <item>
+           <layout class="QHBoxLayout" name="horizontalLayout_4">
+            <item>
+             <widget class="QCheckBox" name="m_ddr_box">
+              <property name="text">
+               <string>显示DRR</string>
+              </property>
+              <property name="checked">
+               <bool>true</bool>
+              </property>
+              <property name="tristate">
+               <bool>false</bool>
+              </property>
+             </widget>
+            </item>
+            <item>
+             <widget class="QCheckBox" name="m_xray_box">
+              <property name="text">
+               <string>显示X影像</string>
+              </property>
+              <property name="checked">
+               <bool>true</bool>
+              </property>
+             </widget>
+            </item>
+            <item>
+             <widget class="QLabel" name="label_9">
+              <property name="text">
+               <string>DRR图透明占比</string>
+              </property>
+             </widget>
+            </item>
+            <item>
+             <widget class="QLineEdit" name="opacity_text">
+              <property name="text">
+               <string>50</string>
+              </property>
+             </widget>
+            </item>
+            <item>
+             <widget class="QLabel" name="label_11">
+              <property name="text">
+               <string>%</string>
+              </property>
+             </widget>
+            </item>
+           </layout>
+          </item>
+         </layout>
         </widget>
        </widget>
       </item>
@@ -170,44 +144,6 @@ p, li { white-space: pre-wrap; }
           <property name="frameShadow">
            <enum>QFrame::Raised</enum>
           </property>
-          <widget class="QLabel" name="drr_label">
-           <property name="geometry">
-            <rect>
-             <x>0</x>
-             <y>0</y>
-             <width>561</width>
-             <height>581</height>
-            </rect>
-           </property>
-           <property name="minimumSize">
-            <size>
-             <width>500</width>
-             <height>500</height>
-            </size>
-           </property>
-           <property name="text">
-            <string/>
-           </property>
-          </widget>
-          <widget class="QLabel" name="xray_label">
-           <property name="geometry">
-            <rect>
-             <x>0</x>
-             <y>0</y>
-             <width>561</width>
-             <height>581</height>
-            </rect>
-           </property>
-           <property name="minimumSize">
-            <size>
-             <width>500</width>
-             <height>500</height>
-            </size>
-           </property>
-           <property name="text">
-            <string/>
-           </property>
-          </widget>
           <widget class="QVTKWidget" name="qvtkWidget">
            <property name="geometry">
             <rect>
@@ -667,6 +603,30 @@ p, li { white-space: pre-wrap; }
               </property>
              </widget>
             </widget>
+            <zorder>x_pixel_text</zorder>
+            <zorder>y_pixel_text</zorder>
+            <zorder>z_pixel_text</zorder>
+            <zorder>label</zorder>
+            <zorder>label_2</zorder>
+            <zorder>label_3</zorder>
+            <zorder>label_4</zorder>
+            <zorder>x_axis_text</zorder>
+            <zorder>y_axis_text</zorder>
+            <zorder>z_axis_text</zorder>
+            <zorder>label_5</zorder>
+            <zorder>label_6</zorder>
+            <zorder>label_7</zorder>
+            <zorder>label_8</zorder>
+            <zorder>horizontalSlider</zorder>
+            <zorder>horizontalSlider_3</zorder>
+            <zorder>horizontalSlider_4</zorder>
+            <zorder>horizontalSlider_5</zorder>
+            <zorder>horizontalSlider_6</zorder>
+            <zorder>horizontalSlider_2</zorder>
+            <zorder>frame_2</zorder>
+            <zorder>frame</zorder>
+            <zorder>frame</zorder>
+            <zorder>frame</zorder>
            </widget>
           </item>
           <item>

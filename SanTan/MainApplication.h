@@ -27,21 +27,35 @@ class MainApplication : public QMainWindow
 
 public:
     MainApplication(QWidget *parent = Q_NULLPTR);
-	QPixmap xray_img;
-	QPixmap ct_img;
 
 public slots:
 	void openCT_clicked();
 	void openXRay_clicked();
 	void viewDRR();
 	void viewXRay();
+	void viewImage(int flag);
+	void chooseReader();
+	void changeOpacity();
 
 private:
     Ui::MainApplication ui;
-	vtkSmartPointer<vtkImageViewer2> m_pImageViewer;
+	vtkSmartPointer<vtkImageViewer2> m_pImageViewer;	
 	vtkSmartPointer<vtkRenderer> m_pRenderer;
 	vtkSmartPointer<vtkImageBlend> imageBlend;
-	bool isDRR;
-	bool isXray;
-	bool isCT;
+	vtkSmartPointer<vtkDICOMImageReader> CTReader;
+	vtkSmartPointer<vtkDICOMImageReader> XRayReader;
+	bool isDRR;											//是否已经生成DRR
+	bool isXray;										//是否传入Xray图像
+	bool isCT;											//是否传入CT图像
+	bool DRR_visible;									//是否显示DRR
+	bool XRay_visible;									//是否显示XRay
+	int layer;											//图层数
+	int cur_Xray;										//Xray所在图层
+	int cur_DRR;										//DRR所在图层
+
+private:
+	int getLayer();
+	void clearLayer();
+	double getOpacity();
+
 };
