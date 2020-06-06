@@ -31,12 +31,12 @@
         <property name="frameShadow">
          <enum>QFrame::Raised</enum>
         </property>
-        <widget class="QWidget" name="">
+        <widget class="QWidget" name="layoutWidget">
          <property name="geometry">
           <rect>
            <x>10</x>
            <y>10</y>
-           <width>861</width>
+           <width>961</width>
            <height>31</height>
           </rect>
          </property>
@@ -73,6 +73,13 @@
            <widget class="QPushButton" name="m_cancel_btn">
             <property name="text">
              <string>取消区域</string>
+            </property>
+           </widget>
+          </item>
+          <item>
+           <widget class="QPushButton" name="m_change_btn">
+            <property name="text">
+             <string>切换显示</string>
             </property>
            </widget>
           </item>
@@ -172,252 +179,10 @@
             <property name="frameShadow">
              <enum>QFrame::Raised</enum>
             </property>
-            <widget class="QTextEdit" name="x_pixel_text">
-             <property name="geometry">
-              <rect>
-               <x>60</x>
-               <y>40</y>
-               <width>51</width>
-               <height>31</height>
-              </rect>
-             </property>
-            </widget>
-            <widget class="QTextEdit" name="y_pixel_text">
-             <property name="geometry">
-              <rect>
-               <x>60</x>
-               <y>80</y>
-               <width>51</width>
-               <height>31</height>
-              </rect>
-             </property>
-            </widget>
-            <widget class="QTextEdit" name="z_pixel_text">
-             <property name="geometry">
-              <rect>
-               <x>60</x>
-               <y>120</y>
-               <width>51</width>
-               <height>31</height>
-              </rect>
-             </property>
-            </widget>
-            <widget class="QLabel" name="label">
-             <property name="geometry">
-              <rect>
-               <x>50</x>
-               <y>20</y>
-               <width>72</width>
-               <height>15</height>
-              </rect>
-             </property>
-             <property name="text">
-              <string>像素平移</string>
-             </property>
-            </widget>
-            <widget class="QLabel" name="label_2">
-             <property name="geometry">
-              <rect>
-               <x>20</x>
-               <y>50</y>
-               <width>41</width>
-               <height>21</height>
-              </rect>
-             </property>
-             <property name="text">
-              <string>X像素</string>
-             </property>
-            </widget>
-            <widget class="QLabel" name="label_3">
-             <property name="geometry">
-              <rect>
-               <x>20</x>
-               <y>90</y>
-               <width>41</width>
-               <height>21</height>
-              </rect>
-             </property>
-             <property name="text">
-              <string>Y像素</string>
-             </property>
-            </widget>
-            <widget class="QLabel" name="label_4">
-             <property name="geometry">
-              <rect>
-               <x>20</x>
-               <y>130</y>
-               <width>41</width>
-               <height>21</height>
-              </rect>
-             </property>
-             <property name="text">
-              <string>Z像素</string>
-             </property>
-            </widget>
-            <widget class="QTextEdit" name="x_axis_text">
-             <property name="geometry">
-              <rect>
-               <x>230</x>
-               <y>40</y>
-               <width>61</width>
-               <height>31</height>
-              </rect>
-             </property>
-            </widget>
-            <widget class="QTextEdit" name="y_axis_text">
-             <property name="geometry">
-              <rect>
-               <x>230</x>
-               <y>80</y>
-               <width>61</width>
-               <height>31</height>
-              </rect>
-             </property>
-            </widget>
-            <widget class="QTextEdit" name="z_axis_text">
-             <property name="geometry">
-              <rect>
-               <x>230</x>
-               <y>120</y>
-               <width>61</width>
-               <height>31</height>
-              </rect>
-             </property>
-            </widget>
-            <widget class="QLabel" name="label_5">
-             <property name="geometry">
-              <rect>
-               <x>200</x>
-               <y>50</y>
-               <width>31</width>
-               <height>21</height>
-              </rect>
-             </property>
-             <property name="text">
-              <string>X轴</string>
-             </property>
-            </widget>
-            <widget class="QLabel" name="label_6">
-             <property name="geometry">
-              <rect>
-               <x>200</x>
-               <y>90</y>
-               <width>31</width>
-               <height>21</height>
-              </rect>
-             </property>
-             <property name="text">
-              <string>Y轴</string>
-             </property>
-            </widget>
-            <widget class="QLabel" name="label_7">
-             <property name="geometry">
-              <rect>
-               <x>200</x>
-               <y>130</y>
-               <width>31</width>
-               <height>21</height>
-              </rect>
-             </property>
-             <property name="text">
-              <string>Z轴</string>
-             </property>
-            </widget>
-            <widget class="QLabel" name="label_8">
-             <property name="geometry">
-              <rect>
-               <x>210</x>
-               <y>20</y>
-               <width>101</width>
-               <height>16</height>
-              </rect>
-             </property>
-             <property name="text">
-              <string>旋转度(0-360)</string>
-             </property>
-            </widget>
-            <widget class="QSlider" name="horizontalSlider">
-             <property name="geometry">
-              <rect>
-               <x>120</x>
-               <y>130</y>
-               <width>71</width>
-               <height>21</height>
-              </rect>
-             </property>
-             <property name="orientation">
-              <enum>Qt::Horizontal</enum>
-             </property>
-            </widget>
-            <widget class="QSlider" name="horizontalSlider_3">
-             <property name="geometry">
-              <rect>
-               <x>120</x>
-               <y>50</y>
-               <width>71</width>
-               <height>21</height>
-              </rect>
-             </property>
-             <property name="orientation">
-              <enum>Qt::Horizontal</enum>
-             </property>
-            </widget>
-            <widget class="QSlider" name="horizontalSlider_4">
-             <property name="geometry">
-              <rect>
-               <x>300</x>
-               <y>130</y>
-               <width>71</width>
-               <height>21</height>
-              </rect>
-             </property>
-             <property name="orientation">
-              <enum>Qt::Horizontal</enum>
-             </property>
-            </widget>
-            <widget class="QSlider" name="horizontalSlider_5">
-             <property name="geometry">
-              <rect>
-               <x>300</x>
-               <y>90</y>
-               <width>71</width>
-               <height>21</height>
-              </rect>
-             </property>
-             <property name="orientation">
-              <enum>Qt::Horizontal</enum>
-             </property>
-            </widget>
-            <widget class="QSlider" name="horizontalSlider_6">
-             <property name="geometry">
-              <rect>
-               <x>300</x>
-               <y>50</y>
-               <width>71</width>
-               <height>21</height>
-              </rect>
-             </property>
-             <property name="orientation">
-              <enum>Qt::Horizontal</enum>
-             </property>
-            </widget>
-            <widget class="QSlider" name="horizontalSlider_2">
-             <property name="geometry">
-              <rect>
-               <x>120</x>
-               <y>90</y>
-               <width>71</width>
-               <height>21</height>
-              </rect>
-             </property>
-             <property name="orientation">
-              <enum>Qt::Horizontal</enum>
-             </property>
-            </widget>
             <widget class="QFrame" name="frame_2">
              <property name="geometry">
               <rect>
-               <x>110</x>
+               <x>70</x>
                <y>150</y>
                <width>221</width>
                <height>131</height>
@@ -603,30 +368,486 @@
               </property>
              </widget>
             </widget>
-            <zorder>x_pixel_text</zorder>
-            <zorder>y_pixel_text</zorder>
-            <zorder>z_pixel_text</zorder>
-            <zorder>label</zorder>
-            <zorder>label_2</zorder>
-            <zorder>label_3</zorder>
-            <zorder>label_4</zorder>
-            <zorder>x_axis_text</zorder>
-            <zorder>y_axis_text</zorder>
-            <zorder>z_axis_text</zorder>
-            <zorder>label_5</zorder>
-            <zorder>label_6</zorder>
-            <zorder>label_7</zorder>
-            <zorder>label_8</zorder>
-            <zorder>horizontalSlider</zorder>
-            <zorder>horizontalSlider_3</zorder>
-            <zorder>horizontalSlider_4</zorder>
-            <zorder>horizontalSlider_5</zorder>
-            <zorder>horizontalSlider_6</zorder>
-            <zorder>horizontalSlider_2</zorder>
-            <zorder>frame_2</zorder>
-            <zorder>frame</zorder>
-            <zorder>frame</zorder>
-            <zorder>frame</zorder>
+            <widget class="QPushButton" name="init_btn">
+             <property name="geometry">
+              <rect>
+               <x>320</x>
+               <y>230</y>
+               <width>93</width>
+               <height>28</height>
+              </rect>
+             </property>
+             <property name="text">
+              <string>还原</string>
+             </property>
+            </widget>
+            <widget class="QPushButton" name="confirm_btn">
+             <property name="geometry">
+              <rect>
+               <x>320</x>
+               <y>200</y>
+               <width>93</width>
+               <height>28</height>
+              </rect>
+             </property>
+             <property name="text">
+              <string>确认</string>
+             </property>
+            </widget>
+            <widget class="QFrame" name="frame_6">
+             <property name="geometry">
+              <rect>
+               <x>10</x>
+               <y>10</y>
+               <width>101</width>
+               <height>121</height>
+              </rect>
+             </property>
+             <property name="frameShape">
+              <enum>QFrame::StyledPanel</enum>
+             </property>
+             <property name="frameShadow">
+              <enum>QFrame::Raised</enum>
+             </property>
+             <widget class="QLabel" name="label">
+              <property name="geometry">
+               <rect>
+                <x>20</x>
+                <y>10</y>
+                <width>72</width>
+                <height>15</height>
+               </rect>
+              </property>
+              <property name="text">
+               <string>像素平移</string>
+              </property>
+             </widget>
+             <widget class="QLineEdit" name="xp_label">
+              <property name="geometry">
+               <rect>
+                <x>50</x>
+                <y>30</y>
+                <width>46</width>
+                <height>21</height>
+               </rect>
+              </property>
+              <property name="text">
+               <string>0</string>
+              </property>
+             </widget>
+             <widget class="QLabel" name="label_2">
+              <property name="geometry">
+               <rect>
+                <x>10</x>
+                <y>30</y>
+                <width>41</width>
+                <height>21</height>
+               </rect>
+              </property>
+              <property name="text">
+               <string>X像素</string>
+              </property>
+             </widget>
+             <widget class="QLabel" name="label_3">
+              <property name="geometry">
+               <rect>
+                <x>10</x>
+                <y>60</y>
+                <width>41</width>
+                <height>21</height>
+               </rect>
+              </property>
+              <property name="text">
+               <string>Y像素</string>
+              </property>
+             </widget>
+             <widget class="QLineEdit" name="yp_label">
+              <property name="geometry">
+               <rect>
+                <x>50</x>
+                <y>60</y>
+                <width>46</width>
+                <height>21</height>
+               </rect>
+              </property>
+              <property name="text">
+               <string>0</string>
+              </property>
+             </widget>
+             <widget class="QLabel" name="label_4">
+              <property name="geometry">
+               <rect>
+                <x>10</x>
+                <y>90</y>
+                <width>41</width>
+                <height>21</height>
+               </rect>
+              </property>
+              <property name="text">
+               <string>Z像素</string>
+              </property>
+             </widget>
+             <widget class="QLineEdit" name="zp_label">
+              <property name="geometry">
+               <rect>
+                <x>50</x>
+                <y>90</y>
+                <width>46</width>
+                <height>21</height>
+               </rect>
+              </property>
+              <property name="text">
+               <string>0</string>
+              </property>
+             </widget>
+            </widget>
+            <widget class="QFrame" name="frame_7">
+             <property name="geometry">
+              <rect>
+               <x>110</x>
+               <y>10</y>
+               <width>101</width>
+               <height>131</height>
+              </rect>
+             </property>
+             <property name="frameShape">
+              <enum>QFrame::StyledPanel</enum>
+             </property>
+             <property name="frameShadow">
+              <enum>QFrame::Raised</enum>
+             </property>
+             <widget class="QLabel" name="label_8">
+              <property name="geometry">
+               <rect>
+                <x>0</x>
+                <y>10</y>
+                <width>101</width>
+                <height>16</height>
+               </rect>
+              </property>
+              <property name="text">
+               <string>旋转度(0-360)</string>
+              </property>
+             </widget>
+             <widget class="QLabel" name="label_5">
+              <property name="geometry">
+               <rect>
+                <x>10</x>
+                <y>30</y>
+                <width>31</width>
+                <height>21</height>
+               </rect>
+              </property>
+              <property name="text">
+               <string>X轴</string>
+              </property>
+             </widget>
+             <widget class="QLineEdit" name="xr_label">
+              <property name="geometry">
+               <rect>
+                <x>40</x>
+                <y>30</y>
+                <width>46</width>
+                <height>21</height>
+               </rect>
+              </property>
+              <property name="text">
+               <string>0</string>
+              </property>
+             </widget>
+             <widget class="QLabel" name="label_6">
+              <property name="geometry">
+               <rect>
+                <x>10</x>
+                <y>60</y>
+                <width>31</width>
+                <height>21</height>
+               </rect>
+              </property>
+              <property name="text">
+               <string>Y轴</string>
+              </property>
+             </widget>
+             <widget class="QLineEdit" name="yr_label">
+              <property name="geometry">
+               <rect>
+                <x>40</x>
+                <y>60</y>
+                <width>46</width>
+                <height>21</height>
+               </rect>
+              </property>
+              <property name="text">
+               <string>0</string>
+              </property>
+             </widget>
+             <widget class="QLabel" name="label_7">
+              <property name="geometry">
+               <rect>
+                <x>10</x>
+                <y>90</y>
+                <width>31</width>
+                <height>21</height>
+               </rect>
+              </property>
+              <property name="text">
+               <string>Z轴</string>
+              </property>
+             </widget>
+             <widget class="QLineEdit" name="zr_label">
+              <property name="geometry">
+               <rect>
+                <x>40</x>
+                <y>90</y>
+                <width>46</width>
+                <height>21</height>
+               </rect>
+              </property>
+              <property name="text">
+               <string>0</string>
+              </property>
+             </widget>
+            </widget>
+            <widget class="QFrame" name="frame_8">
+             <property name="geometry">
+              <rect>
+               <x>210</x>
+               <y>10</y>
+               <width>101</width>
+               <height>131</height>
+              </rect>
+             </property>
+             <property name="frameShape">
+              <enum>QFrame::StyledPanel</enum>
+             </property>
+             <property name="frameShadow">
+              <enum>QFrame::Raised</enum>
+             </property>
+             <widget class="QLabel" name="label_12">
+              <property name="geometry">
+               <rect>
+                <x>20</x>
+                <y>10</y>
+                <width>71</width>
+                <height>20</height>
+               </rect>
+              </property>
+              <property name="text">
+               <string>光源位置</string>
+              </property>
+             </widget>
+             <widget class="QLabel" name="label_13">
+              <property name="geometry">
+               <rect>
+                <x>0</x>
+                <y>30</y>
+                <width>41</width>
+                <height>21</height>
+               </rect>
+              </property>
+              <property name="text">
+               <string>X像素</string>
+              </property>
+             </widget>
+             <widget class="QLineEdit" name="xt_label">
+              <property name="geometry">
+               <rect>
+                <x>40</x>
+                <y>30</y>
+                <width>46</width>
+                <height>21</height>
+               </rect>
+              </property>
+              <property name="text">
+               <string>0</string>
+              </property>
+             </widget>
+             <widget class="QLineEdit" name="yt_label">
+              <property name="geometry">
+               <rect>
+                <x>40</x>
+                <y>60</y>
+                <width>46</width>
+                <height>21</height>
+               </rect>
+              </property>
+              <property name="text">
+               <string>0</string>
+              </property>
+             </widget>
+             <widget class="QLineEdit" name="zt_label">
+              <property name="geometry">
+               <rect>
+                <x>40</x>
+                <y>90</y>
+                <width>46</width>
+                <height>21</height>
+               </rect>
+              </property>
+              <property name="text">
+               <string>0</string>
+              </property>
+             </widget>
+             <widget class="QLabel" name="label_14">
+              <property name="geometry">
+               <rect>
+                <x>0</x>
+                <y>60</y>
+                <width>41</width>
+                <height>21</height>
+               </rect>
+              </property>
+              <property name="text">
+               <string>Y像素</string>
+              </property>
+             </widget>
+             <widget class="QLabel" name="label_15">
+              <property name="geometry">
+               <rect>
+                <x>0</x>
+                <y>90</y>
+                <width>41</width>
+                <height>21</height>
+               </rect>
+              </property>
+              <property name="text">
+               <string>Z像素</string>
+              </property>
+             </widget>
+            </widget>
+            <widget class="QFrame" name="frame_9">
+             <property name="geometry">
+              <rect>
+               <x>310</x>
+               <y>10</y>
+               <width>101</width>
+               <height>151</height>
+              </rect>
+             </property>
+             <property name="frameShape">
+              <enum>QFrame::StyledPanel</enum>
+             </property>
+             <property name="frameShadow">
+              <enum>QFrame::Raised</enum>
+             </property>
+             <widget class="QLabel" name="label_17">
+              <property name="geometry">
+               <rect>
+                <x>0</x>
+                <y>90</y>
+                <width>51</width>
+                <height>21</height>
+               </rect>
+              </property>
+              <property name="text">
+               <string>源像距</string>
+              </property>
+             </widget>
+             <widget class="QLineEdit" name="sid_label">
+              <property name="geometry">
+               <rect>
+                <x>50</x>
+                <y>90</y>
+                <width>41</width>
+                <height>21</height>
+               </rect>
+              </property>
+              <property name="text">
+               <string>400</string>
+              </property>
+             </widget>
+             <widget class="QLabel" name="label_20">
+              <property name="geometry">
+               <rect>
+                <x>10</x>
+                <y>30</y>
+                <width>41</width>
+                <height>21</height>
+               </rect>
+              </property>
+              <property name="text">
+               <string>X轴长</string>
+              </property>
+             </widget>
+             <widget class="QLineEdit" name="dx_label">
+              <property name="geometry">
+               <rect>
+                <x>50</x>
+                <y>30</y>
+                <width>41</width>
+                <height>21</height>
+               </rect>
+              </property>
+              <property name="text">
+               <string>500</string>
+              </property>
+             </widget>
+             <widget class="QLineEdit" name="dy_label">
+              <property name="geometry">
+               <rect>
+                <x>50</x>
+                <y>60</y>
+                <width>41</width>
+                <height>21</height>
+               </rect>
+              </property>
+              <property name="text">
+               <string>500</string>
+              </property>
+             </widget>
+             <widget class="QLabel" name="label_21">
+              <property name="geometry">
+               <rect>
+                <x>10</x>
+                <y>60</y>
+                <width>41</width>
+                <height>21</height>
+               </rect>
+              </property>
+              <property name="text">
+               <string>Y轴长</string>
+              </property>
+             </widget>
+             <widget class="QLineEdit" name="threshold_label">
+              <property name="geometry">
+               <rect>
+                <x>50</x>
+                <y>120</y>
+                <width>41</width>
+                <height>21</height>
+               </rect>
+              </property>
+              <property name="text">
+               <string>0</string>
+              </property>
+             </widget>
+             <widget class="QLabel" name="label_24">
+              <property name="geometry">
+               <rect>
+                <x>10</x>
+                <y>120</y>
+                <width>31</width>
+                <height>21</height>
+               </rect>
+              </property>
+              <property name="text">
+               <string>阈值</string>
+              </property>
+             </widget>
+             <widget class="QLabel" name="label_16">
+              <property name="geometry">
+               <rect>
+                <x>20</x>
+                <y>10</y>
+                <width>71</width>
+                <height>20</height>
+               </rect>
+              </property>
+              <property name="text">
+               <string>成像设置</string>
+              </property>
+             </widget>
+            </widget>
            </widget>
           </item>
           <item>
@@ -649,7 +870,7 @@
                <x>0</x>
                <y>0</y>
                <width>441</width>
-               <height>291</height>
+               <height>293</height>
               </rect>
              </property>
              <layout class="QHBoxLayout" name="horizontalLayout_3">

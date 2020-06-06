@@ -2,6 +2,7 @@
 
 #include <QtWidgets/QMainWindow>
 #include "ui_MainApplication.h"
+#include "itkDrr.h"
 /*vtk File*/
 #include <vtkRenderer.h>
 #include <vtkRenderWindow.h>
@@ -36,10 +37,12 @@ public slots:
 	void viewImage(int flag);
 	void chooseReader();
 	void changeOpacity();
+	void vtkImitateDRR();
+	void adjustPara();
 
 private:
     Ui::MainApplication ui;
-	vtkSmartPointer<vtkImageViewer2> m_pImageViewer;	
+	vtkSmartPointer<vtkImageViewer2> m_pImageViewer;
 	vtkSmartPointer<vtkRenderer> m_pRenderer;
 	vtkSmartPointer<vtkImageBlend> imageBlend;
 	vtkSmartPointer<vtkDICOMImageReader> CTReader;
@@ -52,10 +55,11 @@ private:
 	int layer;											//图层数
 	int cur_Xray;										//Xray所在图层
 	int cur_DRR;										//DRR所在图层
+	itkDrr* drr;										//ITK DRR生成类
 
 private:
 	int getLayer();
 	void clearLayer();
 	double getOpacity();
-
+	
 };

@@ -41,6 +41,12 @@
     <ClCompile Include="QtUtil.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="itkImageToVTKImageFilter.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="itkDrr.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <QtRcc Include="MainApplication.qrc" />
@@ -49,5 +55,16 @@
     <ClInclude Include="QtUtil.h">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="itkImageToVTKImageFilter.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="itkDrr.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="itkImageToVTKImageFilter.txx">
+      <Filter>Header Files</Filter>
+    </None>
   </ItemGroup>
 </Project>

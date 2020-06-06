@@ -8,6 +8,10 @@
 #include <QGraphicsOpacityEffect>
 #include "QtUtil.h"
 
+// 适配ITK
+#include <winsock2.h> 
+#pragma comment(lib, "WS2_32")
+#pragma comment(lib, "Rpcrt4.lib")
 
 MainApplication::MainApplication(QWidget *parent)
     : QMainWindow(parent)
@@ -27,6 +31,7 @@ MainApplication::MainApplication(QWidget *parent)
 	DRR_visible = true;
 	XRay_visible = true;
 	layer = 0;
+	drr = new itkDrr();
 	m_pImageViewer->SetInputData(imageBlend->GetOutput());
 	m_pImageViewer->UpdateDisplayExtent();
 	m_pImageViewer->SetRenderWindow(ui.qvtkWidget->GetRenderWindow());
@@ -51,24 +56,24 @@ MainApplication::MainApplication(QWidget *parent)
 	connect(ui.opacity_text, SIGNAL(editingFinished()), this, SLOT(changeOpacity()));//ddr图透明占比
 
 	//像素平移
-
 	//旋转度
+	//参数调整
+	connect(ui.confirm_btn, SIGNAL(clicked()), this, SLOT(adjustPara()));
 	//测试代码
 }
 
 void MainApplication::openCT_clicked() {
-	QFileDialog *fileDialog = new QFileDialog(this);
-	fileDialog->setWindowTitle(QStringLiteral("选择CT图像"));
-	fileDialog->setDirectory(".");
-	fileDialog->setNameFilter(tr("Images (*.dcm)"));
-	fileDialog->setFileMode(QFileDialog::ExistingFiles);
-	fileDialog->setViewMode(QFileDialog::Detail);
-	QString filename;
-	if (fileDialog->exec()) {
-		filename = fileDialog->selectedFiles()[0];
-	}
-	if (filename.isEmpty()) return;
+	// 清除上一个CT序列
+	clearLayer();
+	// 读取序列图像
+	// 进入ITKDRR处理
+	QString filedic = QFileDialog::getExistingDirectory(
+		this, QStringLiteral("选择CT图像序列"), "."
+	);
+	if (filedic.isEmpty()) return;
 	else {
+		// 使用ITKDRR类读入图像序列
+		drr->setInputName(filedic.toStdString().data());
 		viewImage(0);
 	}
 }
@@ -116,7 +121,7 @@ void MainApplication::chooseReader() {
 		m_pImageViewer->SetInputData(imageBlend->GetOutput());
 	}
 	else if (DRR_visible && isDRR) {	//只显示DRR
-		m_pImageViewer->SetInputData(CTReader->GetOutput());
+		m_pImageViewer->SetInputData(drr->ivfilter->GetOutput());
 	}
 	else if (XRay_visible && isXray) {	//只显示XRay
 		m_pImageViewer->SetInputData(XRayReader->GetOutput());
@@ -144,6 +149,47 @@ void MainApplication::changeOpacity()
 	}
 }
 
+void MainApplication::vtkImitateDRR()
+{
+}
+
+void MainApplication::adjustPara()
+{
+	if (!isCT) {
+		return;
+	}
+	float xp = ui.xp_label->text().toFloat();
+	float yp = ui.yp_label->text().toFloat();
+	float zp = ui.zp_label->text().toFloat();
+	float xr = ui.xr_label->text().toFloat();
+	float yr = ui.yr_label->text().toFloat();
+	float zr = ui.zr_label->text().toFloat();
+	float cx = ui.xt_label->text().toFloat();
+	float cy = ui.yt_label->text().toFloat();
+	float cz = ui.zt_label->text().toFloat();
+	float sid = ui.sid_label->text().toFloat();
+	int dx = ui.dx_label->text().toInt();
+	int dy = ui.dy_label->text().toInt();
+	double threshold = ui.threshold_label->text().toDouble();
+	// 异步处理DRR图像
+	// 暂未写异步方法
+	// 先初始化
+	layer = 0;
+	imageBlend = nullptr;
+	imageBlend = vtkSmartPointer<vtkImageBlend>::New();
+	drr->myDrr(xr, yr, zr, xp, yp, zp, cx, cy, cz, sid, dx, dy, threshold);
+	imageBlend->AddInputData(drr->ivfilter->GetOutput());
+	imageBlend->SetOpacity(getLayer(), getOpacity());
+	cur_DRR = getLayer();
+	imageBlend->Update();
+	m_pImageViewer->SetInputData(imageBlend->GetOutput());
+	m_pImageViewer->UpdateDisplayExtent();
+	m_pImageViewer->SetRenderWindow(ui.qvtkWidget->GetRenderWindow());
+	m_pImageViewer->SetRenderer(m_pRenderer);
+	ui.qvtkWidget->GetRenderWindow()->Render();
+	layer++;
+}
+
 int MainApplication::getLayer() {
 	if (layer == 0 || layer == 1)
 		return layer;
@@ -169,29 +215,16 @@ double MainApplication::getOpacity()
 }
 
 void MainApplication::viewImage(int flag) {
-	if (flag == 0) {	//导入CT
+	//此方法中的所有步骤都应该采用多线程来避免UI卡顿
+	if (flag == 0) {	//调用ITKDRR中的DRR算法
 		// 导入CT图像之后使用DRR算法生成DRR图像
-		// 暂未实现
+		//
 		isCT = true;
-		viewImage(1);
+		adjustPara();
+		isDRR = true;
 	}
 	else if (flag == 1) { // 展示DRR图像
-		isDRR = true;
-		// 暂时先用CT图像代替输出
-		CTReader = vtkSmartPointer<vtkDICOMImageReader>::New();
-		//CTReader->SetFileName(filename.toStdString().data());
-		CTReader->SetFileName("D:\\QT\\1-yaozhui5\\1-yaozhui5\\CT164326_651423_00004_00081_216_W400L40.DCM");
-		CTReader->Update();
-		imageBlend->AddInputData(CTReader->GetOutput());
-		imageBlend->SetOpacity(getLayer(), getOpacity());
-		cur_DRR = getLayer();
-		imageBlend->Update();
-		m_pImageViewer->SetInputData(imageBlend->GetOutput());
-		m_pImageViewer->UpdateDisplayExtent();
-		m_pImageViewer->SetRenderWindow(ui.qvtkWidget->GetRenderWindow());
-		m_pImageViewer->SetRenderer(m_pRenderer);
-		ui.qvtkWidget->GetRenderWindow()->Render();
-		layer++;
+		return;
 	}
 	else if (flag == 2) { // 展示XRay图像
 		isXray = true;
